@@ -4,7 +4,7 @@ import java.util.List;
 
 public class EntityClazz {
 
-    private EntityPkg pkg;
+    private EntityPkg pkg; //
 
     private String comment;
 

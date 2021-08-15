@@ -6,7 +6,7 @@ import java.util.List;
 
 public class EntityPkg {
 
-    private String name;
+    private String name; //
 
     private EntityPkg parent;
 

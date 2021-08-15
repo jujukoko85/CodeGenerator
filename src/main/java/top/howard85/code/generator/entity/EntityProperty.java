@@ -2,7 +2,7 @@ package top.howard85.code.generator.entity;
 
 public class EntityProperty {
 
-    private Class clazz;
+    private Class clazz; //
 
     private boolean isRawType = false; // 是否是原生类型
 

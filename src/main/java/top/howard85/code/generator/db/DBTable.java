@@ -2,7 +2,7 @@ package top.howard85.code.generator.db;
 
 public class DBTable {
 
-    private String name;
+    private String name; //
 
     private DBColumn id;
 

@@ -9,6 +9,7 @@ class EntityPkgTest {
 
     @Test
     public void test1() {
+
         EntityPkg a = new EntityPkg().setName("A");
         EntityPkg b = new EntityPkg().setName("B");
         EntityPkg c = new EntityPkg().setName("C");

@@ -1,2 +1,44 @@
+# * 通配符，多字符通配
+# **表示匹配任意中间目录如，a/**/z 表示可以匹配a/z、a/s/z或 a/a/s/z 等
+# ? 通配符，单字符通配
+# [] 可以匹配任何一个在方括号中的字符, 如*.[ac] 表示匹配任何以 .a 或者 .c 结尾的文件，如果[]中有短划线 - 分割两个字符，则表示所有两个字符范围内的都可以匹配如 [0-9]
 # Project exclude paths
-/target/
+
+/.gradle/
+/.idea/
+**/build
+**/out
+**/bin
+**/.settings
+**/target
+**/logs
+
+*.iws
+*.classpath
+*.project
+
+# Compiled class file
+*.class
+
+# Log file
+**.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+*.iml

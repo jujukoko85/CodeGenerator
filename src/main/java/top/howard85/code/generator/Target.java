@@ -6,7 +6,7 @@ import java.io.File;
 
 public class Target {
 
-    private File targetDir;
+    private File targetDir; //
     private Generator generator;
 
     public Target(File targetDir, Generator generator) {
