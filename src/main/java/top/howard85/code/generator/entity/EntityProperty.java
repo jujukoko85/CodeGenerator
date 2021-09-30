@@ -10,6 +10,45 @@ public class EntityProperty {
 
     private String comment;
 
+    public EntityProperty() {
+    }
+
+    public EntityProperty(Class clazz, String name, String comment) {
+        this.clazz = clazz;
+        this.name = name;
+        this.comment = comment;
+    }
+
+    public EntityProperty(Class clazz, boolean isRawType, String name, String comment) {
+        this.clazz = clazz;
+        this.isRawType = isRawType;
+        this.name = name;
+        this.comment = comment;
+    }
+
+    public String camelSmallName() {
+        if (1 == name.length()) {
+            return name.toLowerCase();
+        }
+        return name.substring(0, 1).toLowerCase() + name.substring(1);
+    }
+
+    public String camelBigName() {
+        if (1 == name.length()) {
+            return name.toUpperCase();
+        }
+        return name.substring(0, 1).toUpperCase() + name.substring(1);
+    }
+
+    public String typeName() {
+        if (isRawType) {
+            // FIXME
+            return clazz.getSimpleName();
+        } else {
+            return clazz.getSimpleName();
+        }
+    }
+
     public String getComment() {
         return comment;
     }
