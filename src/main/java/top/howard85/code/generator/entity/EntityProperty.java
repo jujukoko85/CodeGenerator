@@ -40,6 +40,15 @@ public class EntityProperty {
         return name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 
+    public String typeFullName() {
+        if (isRawType) {
+            // FIXME
+            return clazz.getName();
+        } else {
+            return clazz.getName();
+        }
+    }
+
     public String typeName() {
         if (isRawType) {
             // FIXME

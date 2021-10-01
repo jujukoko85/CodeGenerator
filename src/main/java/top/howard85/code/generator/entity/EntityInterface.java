@@ -8,8 +8,12 @@ public class EntityInterface {
         this.clazz = clazz;
     }
 
-    public String interfaceName() {
+    public String typeName() {
         return clazz.getSimpleName();
+    }
+
+    public String typeFullName() {
+        return clazz.getName();
     }
 
     public Class getClazz() {

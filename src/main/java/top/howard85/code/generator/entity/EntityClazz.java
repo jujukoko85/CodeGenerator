@@ -4,7 +4,7 @@ import java.util.List;
 
 public class EntityClazz {
 
-    private Class parent;
+    private EntityParent parent;
 
     private List<EntityInterface> interfaces;
 
@@ -40,11 +40,11 @@ public class EntityClazz {
         return this;
     }
 
-    public Class getParent() {
+    public EntityParent getParent() {
         return parent;
     }
 
-    public EntityClazz setParent(Class parent) {
+    public EntityClazz setParent(EntityParent parent) {
         this.parent = parent;
         return this;
     }

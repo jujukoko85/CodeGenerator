@@ -4,6 +4,7 @@ import freemarker.template.TemplateException;
 import org.junit.jupiter.api.Test;
 import top.howard85.code.generator.entity.EntityClazz;
 import top.howard85.code.generator.entity.EntityInterface;
+import top.howard85.code.generator.entity.EntityParent;
 import top.howard85.code.generator.entity.EntityProperty;
 
 import java.io.IOException;
@@ -34,11 +35,14 @@ class GeneratorFreemarkerTest {
 
         List<EntityInterface> interfaces = new ArrayList<>();
         interfaces.add(new EntityInterface(Serializable.class));
-        interfaces.add(new EntityInterface(Comparable.class));
         clazz.setInterfaces(interfaces);
 
+        clazz.setParent(new EntityParent(Man.class));
+
         List<EntityProperty> properties = new ArrayList<>();
-        properties.add(new EntityProperty(Integer.class, true, "age", "年龄"));
+        properties.add(new EntityProperty(Integer.class, "age", "年龄"));
+        properties.add(new EntityProperty(Person.class, "persons", ""));
+
         clazz.setProperties(properties);
         return clazz;
     }
