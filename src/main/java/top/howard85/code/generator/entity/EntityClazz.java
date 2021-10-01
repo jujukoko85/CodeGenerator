@@ -1,5 +1,7 @@
 package top.howard85.code.generator.entity;
 
+import top.howard85.code.generator.utils.NameUtils;
+
 import java.util.List;
 
 public class EntityClazz {
@@ -21,6 +23,10 @@ public class EntityClazz {
             }
         }
         return null;
+    }
+
+    public String lineName() {
+        return NameUtils.humpToLine2(name);
     }
 
     public String camelBigName() {

@@ -23,7 +23,7 @@ class GeneratorFreemarkerTest {
         GeneratorFreemarker g = new GeneratorFreemarker();
         Map<String, Object> map = new HashMap<>();
         map.put("entity", buildEntity());
-        String content = g.merge(map, "entity_rich.ftl");
+//        String content = g.merge(map, "entity_rich.ftl");
 //        String content = g.merge(map, "entity.ftl");
 //        String content = g.merge(map, "repository.ftl");
 //        String content = g.merge(map, "repository_mapper.ftl");
@@ -32,6 +32,7 @@ class GeneratorFreemarkerTest {
 //        String content = g.merge(map, "assembler.ftl");
 //        String content = g.merge(map, "service.ftl");
 //        String content = g.merge(map, "service_impl.ftl");
+        String content = g.merge(map, "controller.ftl");
         assertNotNull(content);
         System.out.println(content);
     }
