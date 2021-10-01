@@ -4,7 +4,6 @@ import freemarker.template.TemplateException;
 import org.junit.jupiter.api.Test;
 import top.howard85.code.generator.entity.EntityClazz;
 import top.howard85.code.generator.entity.EntityInterface;
-import top.howard85.code.generator.entity.EntityParent;
 import top.howard85.code.generator.entity.EntityProperty;
 
 import java.io.IOException;
@@ -32,7 +31,8 @@ class GeneratorFreemarkerTest {
 //        String content = g.merge(map, "assembler.ftl");
 //        String content = g.merge(map, "service.ftl");
 //        String content = g.merge(map, "service_impl.ftl");
-        String content = g.merge(map, "controller.ftl");
+//        String content = g.merge(map, "controller.ftl");
+        String content = g.merge(map, "vo.ftl");
         assertNotNull(content);
         System.out.println(content);
     }
