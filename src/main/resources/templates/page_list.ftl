@@ -1,6 +1,7 @@
 <#assign entityType = entity.camelBigName() />
 <#assign entityName = entity.camelSmallName() />
 <#assign entityLineName = entity.lineName() />
+<#assign primaryName = entity.primary().camelSmallName() />
 ${r'<#assign pageHeadStyles>'}
     ${r'<link type="text/css" rel="stylesheet" href="${appConfig.stylesUrl}/css/bootstrap-datetimepicker.min.css" />'}
 ${r'</#assign>'}
@@ -50,7 +51,7 @@ ${r'<#assign '}firstPageUrl=listAction />
                 ${r'<#if (page?? && page.recordList??)>'}
                     ${r'<#list page.recordList as entity>'}
                         ${r'<tr id="tr_entity_${entity.id}">'}
-                            ${r'<td>${(page.currentPage - 1)*(page.numPerPage)+(entity_index+1)}<input type="hidden" id="txt_entity_id_${entity_index}" name="id" value="${entity.id}" /></td>'}
+                            ${r'<td>${(page.currentPage - 1)*(page.numPerPage)+(entity_index+1)}<input type="hidden" id="txt_entity_id_${entity_index}"'} name="${primaryName}" ${r'value="${entity.id}" /></td>'}
                             <td>
                                 ${r'<a href="${editAction}?id=${entity.id}" target="_blank" title="修改"><i class="bi-pencil"></i></a>'}
                                 &nbsp;

@@ -33,7 +33,8 @@ class GeneratorFreemarkerTest {
 //        String content = g.merge(map, "service_impl.ftl");
 //        String content = g.merge(map, "controller.ftl");
 //        String content = g.merge(map, "vo.ftl");
-        String content = g.merge(map, "page_list.ftl");
+//        String content = g.merge(map, "page_list.ftl");
+        String content = g.merge(map, "page_edit.ftl");
         assertNotNull(content);
         System.out.println(content);
     }
