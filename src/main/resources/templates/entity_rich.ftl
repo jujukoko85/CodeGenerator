@@ -1,7 +1,10 @@
 <#assign entityType = entity.camelBigName() />
 <#assign dtoType = entity.camelBigName() + "Dto" />
+<#assign entityLineName = entity.lineName() />
 <#--FIXME 导包问题-->
-//import java.util.Date;
+// import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 <#-- 集成父类的导包 -->
 <#if entity.parent??>
 import ${entity.parent.typeFullName()};
@@ -38,6 +41,7 @@ import ${property.typeFullName()};
 * ${entity.comment}
 * @author zhuzhaohua
 */
+@TableName("t_${entityLineName}")
 public class ${entityType} ${parentStr} ${interfaceStr} {
     <#--Entity 属性区-->
     <#if entity.properties??>
@@ -46,6 +50,7 @@ public class ${entityType} ${parentStr} ${interfaceStr} {
     private ${property.typeName()} ${property.camelSmallName()};
         </#list>
     </#if>
+
     <#--Entity 业务方法区-->
     public static ${entityType} create(${dtoType} example, String currentUser) {
         ${entityType} target = new ${entityType}();
