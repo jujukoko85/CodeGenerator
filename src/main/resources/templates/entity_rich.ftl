@@ -1,4 +1,7 @@
+<#assign entityType = entity.camelBigName() />
+<#assign dtoType = entity.camelBigName() + "Dto" />
 <#--FIXME 导包问题-->
+//import java.util.Date;
 <#-- 集成父类的导包 -->
 <#if entity.parent??>
 import ${entity.parent.typeFullName()};
@@ -31,20 +34,51 @@ import ${property.typeFullName()};
         </#if>
     </#list>
 </#if>
-<#assign entityType = entity.camelBigName() />
 /**
 * ${entity.comment}
 * @author zhuzhaohua
 */
 public class ${entityType} ${parentStr} ${interfaceStr} {
-
+    <#--Entity 属性区-->
     <#if entity.properties??>
         <#list entity.properties as property>
     // ${property.comment}
     private ${property.typeName()} ${property.camelSmallName()};
         </#list>
     </#if>
+    <#--Entity 业务方法区-->
+    public static ${entityType} create(${dtoType} example, String currentUser) {
+        ${entityType} target = new ${entityType}();
+        <#if entity.properties??>
+            <#list entity.properties as property>
+                <#if !property.primary>
+        target.set${property.camelBigName()}(example.get${property.camelBigName()}());
+                </#if>
+            </#list>
+        </#if>
 
+//        Date now = new Date();
+//        target.setUpdTs(now);
+//        target.setUpdUser(currentUser);
+//        target.setCrtTs(now);
+//        target.setCrtUser(currentUser);
+        return target;
+    }
+
+    public ${entityType} update(${dtoType} example, String currentUser) {
+        <#if entity.properties??>
+            <#list entity.properties as property>
+                <#if !property.primary>
+        this.set${property.camelBigName()}(example.get${property.camelBigName()}());
+                </#if>
+            </#list>
+        </#if>
+//        this.setUpdUser(currentUser);
+//        this.setUpdTs(new Date());
+        return this;
+    }
+
+    <#--Entity Getter Setter 方法区-->
     <#if entity.properties??>
         <#list entity.properties as property>
     public ${property.typeName()} get${property.camelBigName()}() {

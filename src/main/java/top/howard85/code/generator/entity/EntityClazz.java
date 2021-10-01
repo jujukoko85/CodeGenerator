@@ -14,11 +14,28 @@ public class EntityClazz {
 
     private List<EntityProperty> properties;
 
-    public String className() {
+    public EntityProperty primary() {
+        for (EntityProperty property : properties) {
+            if (property.isPrimary()) {
+                return property;
+            }
+        }
+        return null;
+    }
+
+    public String camelBigName() {
         if (1 == name.length()) {
             return name.toUpperCase();
         } else {
             return name.substring(0, 1).toUpperCase() + name.substring(1);
+        }
+    }
+
+    public String camelSmallName() {
+        if (1 == name.length()) {
+            return name.toLowerCase();
+        } else {
+            return name.substring(0, 1).toLowerCase() + name.substring(1);
         }
     }
 

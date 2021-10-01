@@ -23,7 +23,15 @@ class GeneratorFreemarkerTest {
         GeneratorFreemarker g = new GeneratorFreemarker();
         Map<String, Object> map = new HashMap<>();
         map.put("entity", buildEntity());
-        String content = g.merge(map, "entity.ftl");
+        String content = g.merge(map, "entity_rich.ftl");
+//        String content = g.merge(map, "entity.ftl");
+//        String content = g.merge(map, "repository.ftl");
+//        String content = g.merge(map, "repository_mapper.ftl");
+//        String content = g.merge(map, "repository_mybatisplus.ftl");
+//        String content = g.merge(map, "dto.ftl");
+//        String content = g.merge(map, "assembler.ftl");
+//        String content = g.merge(map, "service.ftl");
+//        String content = g.merge(map, "service_impl.ftl");
         assertNotNull(content);
         System.out.println(content);
     }
@@ -37,11 +45,12 @@ class GeneratorFreemarkerTest {
         interfaces.add(new EntityInterface(Serializable.class));
         clazz.setInterfaces(interfaces);
 
-        clazz.setParent(new EntityParent(Man.class));
+//        clazz.setParent(new EntityParent(Man.class));
 
         List<EntityProperty> properties = new ArrayList<>();
+        properties.add(new EntityProperty(Long.class, "id", "主键").setPrimary(true));
         properties.add(new EntityProperty(Integer.class, "age", "年龄"));
-        properties.add(new EntityProperty(Person.class, "persons", ""));
+//        properties.add(new EntityProperty(Person.class, "persons", ""));
 
         clazz.setProperties(properties);
         return clazz;

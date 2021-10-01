@@ -6,6 +6,8 @@ public class EntityProperty {
 
     private boolean isRawType = false; // 是否是原生类型
 
+    private boolean isPrimary = false; // 是否是主键
+
     private String name;
 
     private String comment;
@@ -15,13 +17,6 @@ public class EntityProperty {
 
     public EntityProperty(Class clazz, String name, String comment) {
         this.clazz = clazz;
-        this.name = name;
-        this.comment = comment;
-    }
-
-    public EntityProperty(Class clazz, boolean isRawType, String name, String comment) {
-        this.clazz = clazz;
-        this.isRawType = isRawType;
         this.name = name;
         this.comment = comment;
     }
@@ -91,6 +86,15 @@ public class EntityProperty {
 
     public EntityProperty setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    public boolean isPrimary() {
+        return isPrimary;
+    }
+
+    public EntityProperty setPrimary(boolean primary) {
+        isPrimary = primary;
         return this;
     }
 }
