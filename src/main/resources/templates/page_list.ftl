@@ -55,7 +55,7 @@ ${r'<#assign '}firstPageUrl=listAction />
                             <td>
                                 ${r'<a href="${editAction}?id=${entity.id}" target="_blank" title="修改"><i class="bi-pencil"></i></a>'}
                                 &nbsp;
-                                ${r'<a href="javascript:void(0)" data-id="${entity.id}" data-action="${deleteAction}" data-confirm="是否删除?" onclick="return Page.showConfirmModal(this);" title="删除"><span class="glyphicon glyphicon-trash"></span></a>'}
+                                ${r'<a href="javascript:void(0)" data-id="${entity.id}" data-action="${deleteAction}" data-confirm="是否删除?" onclick="return Page.showConfirmModal(this);" title="删除"><i class="bi-trash"></i></a>'}
                             </td>
                             <#list entity.properties as property>
                                 <#if !property.primary>

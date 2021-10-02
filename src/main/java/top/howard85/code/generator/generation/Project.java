@@ -21,18 +21,18 @@ public class Project {
 
     public Project() throws IOException {
         generator =  new GeneratorFreemarker();
-        templates.add(new EntityTemplate("assembler.ftl", "Assembler.java"));
-        templates.add(new EntityTemplate("controller.ftl", "Controller.java"));
-        templates.add(new EntityTemplate("dto.ftl", "Dto.java"));
-        templates.add(new EntityTemplate("entity_rich.ftl", ".java"));
-        templates.add(new EntityTemplate("page_edit.ftl", "_edit.ftl"));
-        templates.add(new EntityTemplate("page_list.ftl", "_list.ftl"));
-        templates.add(new EntityTemplate("repository.ftl", "Repository.java"));
-        templates.add(new EntityTemplate("repository_mapper.ftl", "Mapper.java"));
-        templates.add(new EntityTemplate("repository_mybatis_plus.ftl", "MybatisRepository.java"));
-        templates.add(new EntityTemplate("service.ftl", "Service.java"));
-        templates.add(new EntityTemplate("service_impl.ftl", "ServiceImpl.java"));
-        templates.add(new EntityTemplate("vo.ftl", "Vo.java"));
+        templates.add(new EntityTemplate("assembler.ftl", "Assembler", (short) 1));
+        templates.add(new EntityTemplate("controller.ftl", "Controller", (short) 1));
+        templates.add(new EntityTemplate("dto.ftl", "Dto", (short) 1));
+        templates.add(new EntityTemplate("entity_rich.ftl", "", (short) 1));
+        templates.add(new EntityTemplate("page_edit.ftl", "_edit", (short) 2));
+        templates.add(new EntityTemplate("page_list.ftl", "_list", (short) 2));
+        templates.add(new EntityTemplate("repository.ftl", "Repository", (short) 1));
+        templates.add(new EntityTemplate("repository_mapper.ftl", "Mapper", (short) 1));
+        templates.add(new EntityTemplate("repository_mybatis_plus.ftl", "MybatisRepository", (short) 1));
+        templates.add(new EntityTemplate("service.ftl", "Service", (short) 1));
+        templates.add(new EntityTemplate("service_impl.ftl", "ServiceImpl", (short) 1));
+        templates.add(new EntityTemplate("vo.ftl", "Vo", (short) 1));
     }
 
     public Project(String outputDir) throws IOException {
