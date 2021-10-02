@@ -2,19 +2,35 @@ package top.howard85.code.generator.entity;
 
 import top.howard85.code.generator.utils.NameUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EntityClazz {
 
     private EntityParent parent;
 
-    private List<EntityInterface> interfaces;
+    private List<EntityInterface> interfaces = new ArrayList<>();
 
     private String name;
 
     private String comment;
 
-    private List<EntityProperty> properties;
+    private List<EntityProperty> properties = new ArrayList<>();
+
+    public EntityClazz(String name, String comment) {
+        this.name = name;
+        this.comment = comment;
+    }
+
+    public EntityClazz addInterface(EntityInterface entityInterface) {
+        this.interfaces.add(entityInterface);
+        return this;
+    }
+
+    public EntityClazz addProperty(EntityProperty property) {
+        this.properties.add(property);
+        return this;
+    }
 
     public EntityProperty primary() {
         for (EntityProperty property : properties) {
@@ -89,4 +105,5 @@ public class EntityClazz {
         this.name = name;
         return this;
     }
+
 }

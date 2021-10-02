@@ -26,7 +26,7 @@ class GeneratorFreemarkerTest {
 //        String content = g.merge(map, "entity.ftl");
 //        String content = g.merge(map, "repository.ftl");
 //        String content = g.merge(map, "repository_mapper.ftl");
-//        String content = g.merge(map, "repository_mybatisplus.ftl");
+//        String content = g.merge(map, "repository_mybatis_plus.ftl");
 //        String content = g.merge(map, "dto.ftl");
 //        String content = g.merge(map, "assembler.ftl");
 //        String content = g.merge(map, "service.ftl");
@@ -40,9 +40,7 @@ class GeneratorFreemarkerTest {
     }
 
     private EntityClazz buildEntity() {
-        EntityClazz clazz = new EntityClazz();
-        clazz.setComment("这个是注释");
-        clazz.setName("student");
+        EntityClazz clazz = new EntityClazz("student", "这是个注释");
 
         List<EntityInterface> interfaces = new ArrayList<>();
         interfaces.add(new EntityInterface(Serializable.class));

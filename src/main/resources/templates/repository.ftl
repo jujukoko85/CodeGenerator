@@ -9,11 +9,11 @@ public interface ${entityType}Repository {
 
     void save(${entityType} entity);
 
-    ${entityType} getById(${entityType} id);
+    ${entityType} getById(${primaryType} id);
 
     int update(${entityType} entity);
 
-    int delete(${entityType} id);
+    int delete(${primaryType} id);
 
     PageBean<${entityType}> getPage(PageParam pageParam, ${entityType} example);
 
