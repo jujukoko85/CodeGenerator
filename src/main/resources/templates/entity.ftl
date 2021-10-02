@@ -1,4 +1,5 @@
 <#--FIXME 导包问题-->
+import java.util.Date;
 <#-- 集成父类的导包 -->
 <#if entity.parent??>
 import ${entity.parent.typeFullName()};

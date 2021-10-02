@@ -2,7 +2,7 @@
 <#assign dtoType = entity.camelBigName() + "Dto" />
 <#assign entityLineName = entity.lineName() />
 <#--FIXME 导包问题-->
-// import java.util.Date;
+import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 <#-- 集成父类的导包 -->
