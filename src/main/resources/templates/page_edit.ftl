@@ -28,7 +28,7 @@ ${r'<input id="dialog-success-btn-ok-url" type="hidden" value="${listAction}" />
         </nav>
     </div>
     <div class="row">
-        ${r'<form id="form_edit" class="col submit-confirm repeat-submit" action="<#if entity??>${updateAction}<#else>${saveAction}</#if>" method="post">'}
+        ${r'<form class="form_edit col submit-confirm repeat-submit" action="<#if entity??>${updateAction}<#else>${saveAction}</#if>" method="post">'}
             <input type="hidden" name="${primaryName}" ${r'value="<#if entity??>${entity.id}</#if>" />'}
             <#list entity.properties as property>
                 <#if !property.primary>
@@ -46,7 +46,7 @@ ${r'<input id="dialog-success-btn-ok-url" type="hidden" value="${listAction}" />
                     &nbsp;
                     <button type="reset" class="btn btn-info">重  填</button>
                     &nbsp;
-                    ${r'<a href="javascript:void(0)" class="btn btn-primary" data-confirm="" onclick="return Page.showSubmitConfirmModal(this);"><#if entity??>更  新<#else>保  存</#if></a>'}
+                    <a href="javascript:void(0)" class="btn btn-primary" data-confirm="" onclick="return PageConfirm.showSubmitConfirmModal(this, $(this).parents('form'));">${r'<#if entity??>更  新<#else>保  存</#if></a>'}
                 </div>
             </div>
         </form>
