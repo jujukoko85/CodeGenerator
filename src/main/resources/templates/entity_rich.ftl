@@ -74,7 +74,7 @@ public class ${entityType} ${parentStr} ${interfaceStr} {
         <#if entity.properties??>
             <#list entity.properties as property>
                 <#if !property.primary>
-        this.set${property.camelBigName()}(example.get${property.camelBigName()}());
+        this.set${property.camelBigName()}(null == example.get${property.camelBigName()}() ? this.get${property.camelBigName()}() : example.get${property.camelBigName()}());
                 </#if>
             </#list>
         </#if>
