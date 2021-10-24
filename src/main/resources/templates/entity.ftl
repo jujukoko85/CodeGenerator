@@ -1,5 +1,8 @@
 <#--FIXME 导包问题-->
 import java.util.Date;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+
 <#-- 集成父类的导包 -->
 <#if entity.parent??>
 import ${entity.parent.typeFullName()};
@@ -42,6 +45,9 @@ public class ${entityType} ${parentStr} ${interfaceStr} {
     <#if entity.properties??>
         <#list entity.properties as property>
     // ${property.comment}
+            <#if property.isPrimary()>
+    @TableId(type = IdType.AUTO)
+            </#if>
     private ${property.typeName()} ${property.camelSmallName()};
         </#list>
     </#if>

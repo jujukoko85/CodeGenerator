@@ -2,6 +2,8 @@
 <#assign dtoType = entity.camelBigName() + "Dto" />
 import static com.howard.plat.controller.base.BaseController.DEFAULT_CURR_PAGE;
 import static com.howard.plat.controller.base.BaseController.DEFAULT_PAGE_SIZE;
+import com.howard.plat.base.utils.NumberUtil;
+import com.howard.plat.base.utils.DateUtil;
 
 public class ${voType} {
 
@@ -17,7 +19,34 @@ public class ${voType} {
 
     public ${dtoType} toDto() {
         ${dtoType} dto = new ${dtoType}();
-        // FIXME 完成类型转换
+<#if entity.properties??>
+    <#list entity.properties as property>
+        <#switch property.getClazzEnumCode()>
+            <#case 1> <#-- String -->
+        dto.set${property.camelBigName()}(this.${property.camelSmallName()});<#break>
+            <#case 2> <#-- Short -->
+        dto.set${property.camelBigName()}(NumberUtil.parseShortIfValid(this.${property.camelSmallName()}));<#break>
+            <#case 3> <#-- Integer -->
+        dto.set${property.camelBigName()}(NumberUtil.parseIntegerIfValid(this.${property.camelSmallName()}));<#break>
+            <#case 4> <#-- Long -->
+        dto.set${property.camelBigName()}(NumberUtil.parseLongIfValid(this.${property.camelSmallName()}));<#break>
+            <#case 5> <#-- Double -->
+        dto.set${property.camelBigName()}(NumberUtil.parseDoubleIfValid(this.${property.camelSmallName()}));<#break>
+            <#case 6> <#-- BigDecimal -->
+        dto.set${property.camelBigName()}(NumberUtil.parseBigDecimalIfValid(this.${property.camelSmallName()}));<#break>
+            <#case 7> <#-- BigDecimal -->
+        dto.set${property.camelBigName()}(NumberUtil.parseBigDecimalIfValid(this.${property.camelSmallName()}));<#break>
+            <#case 8> <#-- Date -->
+        dto.set${property.camelBigName()}(DateUtil.parseDatetime(this.${property.camelSmallName()}));<#break>
+            <#case 9> <#-- LocalDat -->
+        dto.set${property.camelBigName()}(DateUtil.parseLocalDate(this.${property.camelSmallName()}));<#break>
+            <#case 10> <#-- LocalDateTime -->
+        dto.set${property.camelBigName()}(DateUtil.parseLocalDateTime(this.${property.camelSmallName()}));<#break>
+            <#default>
+        </#switch>
+    </#list>
+</#if>
+
         return dto;
     }
 

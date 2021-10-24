@@ -1,5 +1,7 @@
 package top.howard85.code.generator.entity;
 
+import top.howard85.code.generator.generation.ClazzEnum;
+
 public class EntityProperty {
 
     private Class clazz; //
@@ -19,6 +21,10 @@ public class EntityProperty {
         this.clazz = clazz;
         this.name = name;
         this.comment = comment;
+    }
+
+    public int getClazzEnumCode() {
+        return null == clazz ? 0 : ClazzEnum.getEnum(clazz).getCode();
     }
 
     public String camelSmallName() {
